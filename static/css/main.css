@@ -385,3 +385,20 @@ h1, h2, h3, h4, h5, h6 {
         page-break-after: avoid;
     }
 }
+
+/* flashes styling */
+
+.flashes ul {
+    margin: 0 0;
+    background: #FFD6A3;
+    color: #000;
+}
+
+.flashes ul {
+    background: #FFD6a3;
+    color: #000;
+}
+
+article.flashes {
+    margin-bottom: 1em;
+}
