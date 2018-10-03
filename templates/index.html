@@ -7,12 +7,20 @@ Thermos -- Welcome
 {% block content %}
     <article>
         <header>
-            <h1>lklklklk</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. .</p>
+            <h1>Welcome</h1>
+            <p> Thermos is a simple social bookmarking site. Or actually, it is a demo for the pluralsight flask course.</p>
         </header>
         <section>
-            <h2>Title {{ title }}<h2>
-            <p>Text: {{ text }}</p>
+            <h2>Recently Added</h2>
+            {% if new_bookmarks %}
+                <ul>
+                {% for bm in new_bookmarks %}
+                    <li>{{ bm.user }} added <a href="{{ bm.url }}">{{ bm.url }}</a></li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                No bookmarks yet.
+            {% endif %}
         </section>
         <section>
             <h2>article section h2</h2>

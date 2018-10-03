@@ -12,10 +12,13 @@ def store_bookmarks(url):
         user = "reindert",
         date = datetime.utcnow()
     ))
+
+def new_bookmarks(num):
+    return sorted(bookmarks, key=lambda bm: bm['date'], reverse=True) [:num]
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', new_bookmarks=new_bookmarks(5))
 
 @app.route('/add', methods = ['GET', 'POST'])
 def add():
@@ -33,7 +36,6 @@ def page_not_found(e):
 @app.errorhandler(500)
 def server_error(e):
     return render_template('500.html'), 500
-
 
 if __name__ == '__main__':
     app.run(debug=True)
